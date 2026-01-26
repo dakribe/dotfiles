@@ -19,7 +19,9 @@ local function on_attach(client, bufnr)
 		vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 	end
 
-	keymap('<leader>ca', '<cmd>FzfLua lsp_code_actions<cr>', 'vim.lsp.buf.code_action()', { 'n', 'x' })
+	keymap('<leader>ca', function()
+		require('tiny-code-action').code_action()
+	end, 'vim.lsp.buf.code_action()', { 'n', 'x' })
 
 	keymap('grr', '<cmd>FzfLua lsp_references<cr>', 'vim.lsp.buf.references()')
 
