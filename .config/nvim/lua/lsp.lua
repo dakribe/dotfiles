@@ -52,12 +52,8 @@ local function on_attach(client, bufnr)
 	end, 'Next error')
 
 	if client:supports_method(methods.textDocument_definition) then
-		keymap('gd', function()
-			require('fzf-lua').lsp_definitions({ jump1 = true })
-		end, 'Go to definition')
-		keymap('gD', function()
-			require('fzf-lua').lsp_definitions({ jump1 = false })
-		end, 'Peek definition')
+		keymap('gd', vim.lsp.buf.definition, 'Go to definition')
+		keymap('gD', vim.lsp.buf.definition, 'Peek definition')
 	end
 
 	if client:supports_method(methods.textDocument_codeLens) then
