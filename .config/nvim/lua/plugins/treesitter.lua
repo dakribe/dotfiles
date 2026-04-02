@@ -1,7 +1,6 @@
 return {
 	{
 		'nvim-treesitter/nvim-treesitter',
-		branch = 'master',
 		event = { 'BufReadPost', 'BufNewFile' },
 		build = ':TSUpdate',
 		dependencies = {
@@ -12,19 +11,8 @@ return {
 				},
 			},
 		},
-		config = function()
-			require('nvim-treesitter.configs').setup({
-				auto_install = true,
-				highlight = {
-					enable = true,
-				},
-				indent = {
-					enable = true,
-				},
-				endwise = {
-					enable = true,
-				},
-			})
+		config = function(_, opts)
+			require('nvim-treesitter').setup(opts)
 		end,
 	},
 }
