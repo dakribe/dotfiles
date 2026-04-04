@@ -29,9 +29,6 @@ local function on_attach(client, bufnr)
 
 	keymap('<leader>vd', vim.diagnostic.open_float, 'Open diagnostic float')
 
-	keymap('<leader>cc', vim.lsp.codelens.run, 'Run codelens')
-	keymap('<leader>cC', vim.lsp.codelens.refresh, 'Refresh codelens')
-
 	keymap('<leader>fs', '<cmd>FzfLua lsp_document_symbols<cr>', 'Document symbols')
 	keymap('<leader>fS', function()
 		-- Disable the grep switch header.
@@ -54,16 +51,6 @@ local function on_attach(client, bufnr)
 	if client:supports_method(methods.textDocument_definition) then
 		keymap('gd', vim.lsp.buf.definition, 'Go to definition')
 		keymap('gD', vim.lsp.buf.definition, 'Peek definition')
-	end
-
-	if client:supports_method(methods.textDocument_codeLens) then
-		vim.api.nvim_create_autocmd({ 'TextChanged', 'BufEnter', 'CursorHold', 'InsertLeave', 'LspAttach' }, {
-			desc = 'Run codelens',
-			buffer = bufnr,
-			callback = function()
-				vim.lsp.codelens.refresh({ bufnr = bufnr })
-			end,
-		})
 	end
 
 	if client:supports_method(methods.textDocument_signatureHelp) then
