@@ -10,14 +10,13 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.mouse = 'a'
 vim.o.wrap = true
-vim.o.relativenumber = false
-vim.o.cursorline = false
+vim.o.relativenumber = true
 
 vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.opt.wrap = true
-vim.opt.clipboard = 'unnamed,unnamedplus'
+vim.opt.clipboard = ''
 
 -- Folding
 vim.o.foldlevel = 99
