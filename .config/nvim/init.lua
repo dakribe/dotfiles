@@ -1,3 +1,4 @@
+vim.cmd.colorscheme('fosk')
 -- Init Lazy, a modern plugin manager for Neovim
 -- @see https://github.com/folke/lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -42,3 +43,5 @@ require('lazy').setup(plugins, {
 		enabled = false,
 	},
 })
+
+require('vim._core.ui2').enable({})
