@@ -55,4 +55,6 @@ nmap('<leader>h', function()
 	vim.notify(vim.lsp.inlay_hint.is_enabled() and 'Inlay Hints Enabled' or 'Inlay Hints Disabled')
 end)
 
+nmap('<leader>R', '<cmd>restart<cr>')
+
 return modes
