@@ -37,7 +37,7 @@ return {
 		},
 		sources = {
 			default = function()
-				local sources = { 'lsp', 'buffer' }
+				local sources = { 'lsp', 'buffer', 'dadbod' }
 				local ok, node = pcall(vim.treesitter.get_node)
 
 				if ok and node then
@@ -50,9 +50,6 @@ return {
 				end
 				return sources
 			end,
-			providers = {
-				dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
-			},
 		},
 	},
 }
