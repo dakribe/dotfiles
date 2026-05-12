@@ -6,6 +6,9 @@ return {
 	settings = {
 		['rust-analyzer'] = {
 			inlayHints = {},
+			check = {
+				command = 'clippy',
+			},
 		},
 	},
 }
